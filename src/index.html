@@ -1,9 +1,44 @@
 <!DOCTYPE html>
 <html>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="character.js"></script>
 <head>
-  <title>Shape Tracker</title>
+  <title>RPG</title>
 </head>
+
 <body>
+  <div class="container">
+    <h2>Characters battle</h2>
+    <div class="row">
+        <div class="col">
+          <label for="character1"><h2>Character1</h2></label>
+          <img src="assets/img/warior1.jpg" alt="" width="100%" height="70%">
+          <button type="button" class="btn-success" id="character-1-hit">Hit with rock</button>
+          <button type="button" class="btn-success" id="character-1-getHealth">Get Health</button>
+          <button type="button" class="btn-success" id="character-1-getEvenMoreHealth">Super Health</button>
+
+          <h3>Character 1 Health</h3>
+          <h3>Current points:<div id="character-1-characterPoints"></div></h3>
+        </div>
+        
+        <div class="col">
+          <label for="character2"><h2>Character2</h2></label>
+          <img src="assets/img/warior2.jpg" alt="" width="100%" height="70%">
+          <button type="button" class="btn-success" id="character-2-hit">Hit with rock</button>
+          <button type="button" class="btn-success" id="character-2-getHealth">Get Health</button>
+          <button type="button" class="btn-success" id="character-2-getEvenMoreHealth">Super Health</button>
+
+          <h3>Character 2 Health</h3>
+          <h3>Current points:<div id="character-2-characterPoints"></div></h3>
+
+        </div>
+        
+    </div>
+  </div>
 
 </body>
+
 </html>
