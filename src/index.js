@@ -6,18 +6,20 @@ import {
   hitPlayer2,
   hit2Player2,
   hit3Player2,
+  hit2Player1,
   getHealthPlayer1,
   getHealthPlayer2,
+  hit3Player1,
   stateControl,
 } from "./character.js";
 
 $(document).ready(function () {
   
-
+//---------------------Player1------------------------------------
   $("#character-1-hit").click(function () {
-      const val =$("#weapons1").val();
+      const typeOfWeapon1 =$("#weapons1").val();
 
-      switch (val) {
+      switch (typeOfWeapon1) {
         case 'hitPlayer2':
           $("#rock-character1").trigger("click");
             break;
@@ -51,10 +53,38 @@ $(document).ready(function () {
     $("#character-1-characterPoints").text(`${state.rock_player1}`);
   });
 
+  //------------------------Player2--------------------------------------
+
   $("#character-2-hit").click(function () {
-    const state = stateControl(hitPlayer1);
-    $("#character-1-characterPoints").text(`${state.rock_player1}`);
+    const typeOfWeapon2 =$("#weapons2").val();
+
+      switch (typeOfWeapon2) {
+        case 'hitPlayer1':
+          $("#rock-character2").trigger("click");
+            break;
+        case 'hit2Player1':
+          $("#bow-character2").trigger("click");
+            break;
+        case 'hit3Player1':
+          $("#sword-character2").trigger("click");
+            break;
+      } 
   });
+
+  $("#sword-character2").click(function(){
+    const state = stateControl(hit3Player1);
+    $("#character-1-characterPoints").text(`${state.rock_player1}`);    
+  });
+
+  $("#bow-character2").click(function(){
+    const state = stateControl(hit2Player1);
+    $("#character-1-characterPoints").text(`${state.rock_player1}`);    
+  });
+
+  $("#rock-character2").click(function(){
+    const state = stateControl(hitPlayer1);
+    $("#character-1-characterPoints").text(`${state.rock_player1}`);  
+  }); 
 
   $("#character-2-getHealth").click(function () {
     const state = stateControl(getHealthPlayer2);
