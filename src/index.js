@@ -7,6 +7,8 @@ import {
   hit2Player2,
   hit3Player2,
   hit2Player1,
+  getMoreHealthPlayer1,
+  getMoreHealthPlayer2,
   getHealthPlayer1,
   getHealthPlayer2,
   hit3Player1,
@@ -53,6 +55,11 @@ $(document).ready(function () {
     $("#character-1-characterPoints").text(`${state.rock_player1}`);
   });
 
+  $("#character-1-getEvenMoreHealth").click(function () {
+    const state = stateControl(getMoreHealthPlayer1);
+    $("#character-1-characterPoints").text(`${state.rock_player1}`);
+  });
+
   //------------------------Player2--------------------------------------
 
   $("#character-2-hit").click(function () {
@@ -88,6 +95,11 @@ $(document).ready(function () {
 
   $("#character-2-getHealth").click(function () {
     const state = stateControl(getHealthPlayer2);
+    $("#character-2-characterPoints").text(`${state.rock_player2}`);
+  });
+
+  $("#character-2-getEvenMoreHealth").click(function () {
+    const state = stateControl(getMoreHealthPlayer2);
     $("#character-2-characterPoints").text(`${state.rock_player2}`);
   });
 });
