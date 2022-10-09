@@ -1,4 +1,4 @@
-import { stateControl, getMoreHealthPlayer1, getMoreHealthPlayer2, getHealthPlayer1, hitPlayer2, hit2Player2, hit3Player2, hitPlayer1, hit2Player1, hit3Player1, getHealthPlayer2} from "../src/character.js";
+import { stateControl, changeCharacterState, storeListState, getMoreHealthPlayer1, getMoreHealthPlayer2, getHealthPlayer1, hitPlayer2, hit2Player2, hit3Player2, hitPlayer1, hit2Player1, hit3Player1, getHealthPlayer2, storeCharacterState} from "../src/character.js";
 
 describe("Player1 hit the Player2", () => {
   test('Should correctly remove 2 points from Player2', () => {
@@ -67,6 +67,24 @@ describe("Player2 get the health +7 points", () => {
   test('Should correctly add 7 points to Player2', () => {
     const newState = stateControl(getMoreHealthPlayer2);
     expect(newState.rock_player2).toEqual(96);
+  });
+});
+
+describe("Shoud correctly change the state for Player2 from 100 to 98", () => {
+  test('Should remove 2 points', () => {
+    const stateControl = storeCharacterState(100);;
+    const state = changeCharacterState("rock_player2")(-2);
+
+    expect(stateControl(state).rock_player2).toEqual(98);
+  });
+});
+
+describe("Shoud correctly change the state for Player1 from 100 to 98", () => {
+  test('Should remove 2 points', () => {
+    const stateControl = storeCharacterState(100);;
+    const state = changeCharacterState("rock_player1")(-2);
+
+    expect(stateControl(state).rock_player1).toEqual(98);
   });
 });
 
